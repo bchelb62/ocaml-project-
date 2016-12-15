@@ -5,11 +5,11 @@ open Voronoi;;
 let v1 = {
   dim = 200,200;
   seeds = [|
-    {c=Some red; x=50; y=100};
-    {c=Some green; x=100; y=50};
-    {c=Some blue; x=100; y=150};
+    {c=Some red ; x=50; y=100};
+    {c=Some blue; x=100; y=55};
+    {c=None; x=100; y=150};
     {c=None; x=150; y=100};
-    {c=None; x=100; y=100}   (*square's seed*)
+    {c=Some yellow; x=100; y=100}   (*square's seed*)
   |]
 }
 
@@ -97,4 +97,13 @@ let v4 =  {
             |]
     }
 
+let list_voro = [v2;v1;v3;v4];;
+
+let random_voronoi list_voro = 
+	Random.self_init();
+	let size = List.length list_voro in 
+	List.nth list_voro (Random.int(size))
+
+
 (*ADD other voronoi of 30/40 seeds, for example taken from the web-site*)
+
